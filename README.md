@@ -127,7 +127,17 @@ Taking Wi-Fi gesture recognition as an example. We choose the Widar3.0 dataset a
 
 <div align="center">    <img src=".\img\10-exp-sensing-data.png"  height=230> </div>
 
+此修改版做出小幅度优化，主要是针对低配GPU，适配了单卡的情况，允许单卡模式下生成FMCW模型，并且对磁盘进行了优化，每20次迭代保存一次文件。
 
+在8GB的显存情况下，您可以在控制台输入以下内容进行训练：
+```python
+python3 train.py \
+--task_id 1 \
+--model_dir /data/coding/modeltemp \
+--data_dir /data/coding/dataset/fmcw/raw \
+--max_iter 1000 \
+--batch_size 2
+```
 ### 2.2 5G FDD Channel Estimation
 
 By executing the following command, a downlink channel estimation for 5G FDD system can be performed. 
