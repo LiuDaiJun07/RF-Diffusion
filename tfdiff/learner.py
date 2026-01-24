@@ -113,7 +113,7 @@ class tfdiffLearner:
                 if self.is_master:
                     if self.iter % 50 == 0:
                         self._write_summary(self.iter, features, loss)
-                    if self.iter % (len(self.dataset)) == 0:
+                    if self.iter % (len(self.dataset)) == 0  and (self.iter // len(self.dataset)) % 20 == 0:#每20次保存一次
                         self.save_to_checkpoint()
                 # self.prof.step()
                 self.iter += 1
