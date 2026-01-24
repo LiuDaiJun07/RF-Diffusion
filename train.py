@@ -33,7 +33,7 @@ def train(params):
     if params.task_id==0:
         model = tfdiff_eeg(params).cuda()
     elif params.task_id==1:
-        model = tfdiff_mimo(params).cuda()
+        model = tfdiff_fmcw(params).cuda()
     else:    
         model = tfdiff_WiFi(params).cuda()
     _train_impl(0, model, dataset, params)

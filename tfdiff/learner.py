@@ -36,7 +36,8 @@ class tfdiffLearner:
         self.model = model
         self.dataset = dataset
         self.optimizer = optimizer
-        self.device = model.device
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        # self.device = model.device
         self.diffusion = SignalDiffusion(params) if params.signal_diffusion else GaussianDiffusion(params)
         # self.prof = torch.profiler.profile(
         #     schedule=torch.profiler.schedule(skip_first=1, wait=0, warmup=2, active=1, repeat=1),
