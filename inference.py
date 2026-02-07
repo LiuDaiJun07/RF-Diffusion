@@ -186,7 +186,7 @@ def save_wifi(out_dir, data, pred, cond, batch, index=0):
     plt.close()
 
 def save_fmcw(out_dir, data, pred, cond, batch,index=0):
-    scio.savemat(f'./dataset/fmcw/output/{batch}-{index}.mat',{'pred':pred.numpy()})
+    scio.savemat(f'./dataset/fmcw/output/{batch}-{index}.mat',{'feature':pred.squeeze(0).numpy(),'cond':cond.squeeze(0).numpy()})
     os.makedirs('./dataset/fmcw/img/', exist_ok=True)
     os.makedirs('./dataset/fmcw/img_matric/data', exist_ok=True)
     os.makedirs('./dataset/fmcw/img_matric/pred', exist_ok=True)
